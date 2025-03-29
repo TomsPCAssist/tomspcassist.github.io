@@ -144,81 +144,40 @@
         </div>
     </div>
 </section>
-
 <script>
     const content = {
         en: {
             header: "Welcome to the PC Helpline!",
             paragraph1: "We offer affordable, easy-to-understand support for all simple PC issues or money back.",
             paragraph2: "Choose your preferred support plan:",
+            contactHeader: "Contact Us",
+            contactText: "If you have any questions or need support, feel free to contact us:",
+            hoursHeader: "Working Hours",
+            hoursText: "Our support responds to messages and handles calls during the following hours (Riga Time, UTC+3):",
             pricingOptions: [
-                {
-                    title: "Monthly Support",
-                    price: "25 EUR",
-                    details: ["5 issues per week", "Priority support", "Unlimited email/chat support"]
-                },
-                {
-                    title: "Live Help Call",
-                    price: "15 EUR",
-                    details: ["Zoom, Google Meet, or Discord", "One-on-one help"]
-                },
-                {
-                    title: "One-Time Issue",
-                    price: "7 EUR",
-                    details: ["One-time support for specific issues"]
-                },
-                {
-                    title: "Priority One-Time Help",
-                    price: "10 EUR ",
-                    details: ["Priority resolution for one-time issues", "Faster response time"]
-                },
-                {
-                    title: "Weekend Support",
-                    price: "20 EUR",
-                    details: ["Support on weekends", "Available Saturday and Sunday"]
-                },
-                {
-                    title: "Remote Setup Service",
-                    price: "10 EUR",
-                    details: ["Help with setting up new devices or software", "Remote assistance (via Zoom, Google Meet, or Discord)"]
-                }
+                { title: "Monthly Support", price: "25 EUR", details: ["5 issues per week", "Priority support", "Unlimited email/chat support"] },
+                { title: "Live Help Call", price: "15 EUR", details: ["Zoom, Google Meet, or Discord", "One-on-one help"] },
+                { title: "One-Time Issue", price: "7 EUR", details: ["One-time support for specific issues"] },
+                { title: "Priority One-Time Help", price: "10 EUR", details: ["Priority resolution for one-time issues", "Faster response time"] },
+                { title: "Weekend Support", price: "20 EUR", details: ["Support on weekends", "Available Saturday and Sunday"] },
+                { title: "Remote Setup Service", price: "10 EUR", details: ["Help with setting up new devices or software", "Remote assistance (via Zoom, Google Meet, or Discord)"] }
             ]
         },
         lv: {
             header: "Laipni lūdzam Datora Palīdzībā!",
             paragraph1: "Mēs piedāvājam pieejamu un viegli saprotamu atbalstu visām vienkāršajām datora problēmām, kā arī naudas atgriešanu, ja problēmu neizdodas atrisināt.",
             paragraph2: "Izvēlieties savu vēlamo atbalsta plānu:",
+            contactHeader: "Sazinieties ar mums",
+            contactText: "Ja jums ir kādi jautājumi vai nepieciešama palīdzība, sazinieties ar mums:",
+            hoursHeader: "Darba laiks",
+            hoursText: "Mēs atbildam uz ziņojumiem un veicam zvanus šajos darba laikos (Rīgas laiks, UTC+3):",
             pricingOptions: [
-                {
-                    title: "Mēneša atbalsts",
-                    price: "25 EUR",
-                    details: ["5 problēmas nedēļā", "Prioritārs atbalsts", "Neierobežots e-pasta/chat atbalsts"]
-                },
-                {
-                    title: "Tiešraides palīdzība",
-                    price: "15 EUR",
-                    details: ["Zoom, Google Meet, vai Discord", "Personisks atbalsts"]
-                },
-                {
-                    title: "Vienreizējs atbalsts",
-                    price: "7 EUR",
-                    details: ["Vienreizējs atbalsts konkrētām problēmām"]
-                },
-                {
-                    title: "Prioritārs vienreizējs atbalsts",
-                    price: "10 EUR",
-                    details: ["Prioritārs risinājums vienreizējam atbalstam", "Ātrāka atbilde"]
-                },
-                {
-                    title: "Brīvdienu atbalsts",
-                    price: "20 EUR",
-                    details: ["Atbalsts brīvdienās", "Pieejams sestdienās un svētdienās"]
-                },
-                {
-                    title: "Uzstādīšanas atbalsts",
-                    price: "10 EUR",
-                    details: ["Palīdzība jaunā aprīkojuma vai programmatūras uzstādīšanā", "Zvana atbalsts (Zoom, Google Meet, vai Discord)"]
-                }
+                { title: "Mēneša atbalsts", price: "25 EUR", details: ["5 problēmas nedēļā", "Prioritārs atbalsts", "Neierobežots e-pasta/chat atbalsts"] },
+                { title: "Tiešraides palīdzība", price: "15 EUR", details: ["Zoom, Google Meet, vai Discord", "Personisks atbalsts"] },
+                { title: "Vienreizējs atbalsts", price: "7 EUR", details: ["Vienreizējs atbalsts konkrētām problēmām"] },
+                { title: "Prioritārs vienreizējs atbalsts", price: "10 EUR", details: ["Prioritārs risinājums vienreizējam atbalstam", "Ātrāka atbilde"] },
+                { title: "Brīvdienu atbalsts", price: "20 EUR", details: ["Atbalsts brīvdienās", "Pieejams sestdienās un svētdienās"] },
+                { title: "Uzstādīšanas atbalsts", price: "10 EUR", details: ["Palīdzība jaunā aprīkojuma vai programmatūras uzstādīšanā", "Zvana atbalsts (Zoom, Google Meet, vai Discord)"] }
             ]
         }
     };
@@ -233,13 +192,16 @@
                     <div class="pricing-option">
                         <h3>${option.title}</h3>
                         <p><strong>${option.price}</strong></p>
-                        <ul>
-                            ${option.details.map(detail => `<li>${detail}</li>`).join('')}
-                        </ul>
+                        <ul>${option.details.map(detail => `<li>${detail}</li>`).join('')}</ul>
                     </div>
                 `).join('')}
             </div>
         `;
+        
+        document.getElementById("contact-header").innerText = content[lang].contactHeader;
+        document.getElementById("contact-text").innerText = content[lang].contactText;
+        document.getElementById("hours-header").innerText = content[lang].hoursHeader;
+        document.getElementById("hours-text").innerText = content[lang].hoursText;
     }
 </script>
 <section>
@@ -253,27 +215,6 @@
     </div>
 </section>
 
-<script>
-    const contactContent = {
-        en: {
-            header: "Contact Us",
-            text: "If you have any questions or need support, feel free to contact us:",
-            email: "toms.vempers@gmail.com",
-            discord: "Your Discord Username"
-        },
-        lv: {
-            header: "Sazinieties ar mums",
-            text: "Ja jums ir kādi jautājumi vai nepieciešama palīdzība, sazinieties ar mums:",
-            email: "toms.vempers@gmail.com",
-            discord: "Jūsu Discord lietotājvārds"
-        }
-    };
-
-    function changeLanguage(lang) {
-        document.getElementById("contact-header").innerText = contactContent[lang].header;
-        document.getElementById("contact-text").innerText = contactContent[lang].text;
-    }
-</script>
 
 <!-- Sidebar with working hours -->
 <div class="hours-sidebar">
@@ -284,28 +225,6 @@
         <li><strong>Saturday - Sunday:</strong> 08:00 - 22:00</li>
     </ul>
 </div>
-
-<script>
-    const hoursContent = {
-        en: {
-            header: "Working Hours",
-            text: "Our support responds to messages and handles calls during the following hours (Riga Time, UTC+3):",
-            mondayToFriday: "Monday - Friday: 17:00 - 22:00",
-            saturdayToSunday: "Saturday - Sunday: 08:00 - 22:00"
-        },
-        lv: {
-            header: "Darba laiks",
-            text: "Mēs atbildam uz ziņojumiem un veicam zvanus šajos darba laikos (Rīgas laiks, UTC+3):",
-            mondayToFriday: "Pirmdiena - Piektdiena: 17:00 - 22:00",
-            saturdayToSunday: "Sestdiena - Svētdiena: 08:00 - 22:00"
-        }
-    };
-
-    function changeLanguage(lang) {
-        document.getElementById("hours-header").innerText = hoursContent[lang].header;
-        document.getElementById("hours-text").innerText = hoursContent[lang].text;
-    }
-</script>
 
 <style>
     body {
